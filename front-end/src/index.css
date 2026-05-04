@@ -1,0 +1,22 @@
+:root {
+  /* 🎨 Cores principais (brand) */
+  --color-bg: #0f172a;
+  --color-bg-card: #1e293b;
+  --color-blue: #3b82f6;
+  --color-soft: #e2e8f0;
+
+  /* 🔤 Fontes */
+  --font-body: "Poppins", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-bg);
+  color: #fff;
+}

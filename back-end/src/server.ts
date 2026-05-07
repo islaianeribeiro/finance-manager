@@ -103,4 +103,7 @@ app.delete("/transacoes/:id", async (request, reply) => {
   return reply.send({ success: true });
 });
 
-app.listen({ port: Number(process.env.PORT) });
+app.listen({
+  port: Number(process.env.PORT) || 3333,
+  host: "0.0.0.0",
+});

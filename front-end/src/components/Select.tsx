@@ -13,7 +13,7 @@ interface SelectProps {
 
 export function Select({ value, onChange, options, label }: SelectProps) {
   return (
-    <div className="input-group">
+    <>
       {label && <label className="label">{label}</label>}
       <select
         required
@@ -27,6 +27,6 @@ export function Select({ value, onChange, options, label }: SelectProps) {
           </option>
         ))}
       </select>
-    </div>
+    </>
   );
 }

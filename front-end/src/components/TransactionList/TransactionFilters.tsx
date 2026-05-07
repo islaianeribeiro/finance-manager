@@ -1,4 +1,4 @@
-import { Input } from "../Input";
+import { Checkbox } from "../Checkbox";
 
 interface Props {
   filtros: {
@@ -17,29 +17,25 @@ export function TransactionFilters({
 }: Props) {
   return (
     <div className="filters">
-      <Input
-        type="checkbox"
+      <Checkbox
         checked={filtros.entrada && filtros.pago && filtros.pendente}
         onChange={selecionarTudo}
         label="Selecionar Tudo"
       />
 
-      <Input
-        type="checkbox"
+      <Checkbox
         checked={filtros.entrada}
         onChange={() => setFiltros({ ...filtros, entrada: !filtros.entrada })}
         label="Entrada"
       />
 
-      <Input
-        type="checkbox"
+      <Checkbox
         checked={filtros.pago}
         onChange={() => setFiltros({ ...filtros, pago: !filtros.pago })}
         label="Pago"
       />
 
-      <Input
-        type="checkbox"
+      <Checkbox
         checked={filtros.pendente}
         onChange={() => setFiltros({ ...filtros, pendente: !filtros.pendente })}
         label="Pendente"

@@ -25,7 +25,9 @@ export function TransactionItem({
       <div className="left">
         <p className="categoria">{t.categoria}</p>
         <span className="data">{dataFormatada}</span>
-        {t.parcelado && <span className="badge">Parcela {t.parcelaAtual}</span>}
+        {t.parcelado && (
+          <span className="badge">Parcela {t.parcela_atual}</span>
+        )}
       </div>
 
       {/* DIREITA */}

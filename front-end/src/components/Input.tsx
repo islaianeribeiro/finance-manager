@@ -22,7 +22,7 @@ export function Input({
   className,
 }: InputProps) {
   return (
-    <div className="input-group">
+    <>
       <input
         name={name}
         type={type}
@@ -33,6 +33,6 @@ export function Input({
       />
 
       {label && <label className="label">{label}</label>}
-    </div>
+    </>
   );
 }

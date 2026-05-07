@@ -20,6 +20,7 @@ export default function App() {
     mesFiltro,
     setMesFiltro,
     adicionar,
+    erro,
     remover,
     transacoesFiltradas,
     totalEntradas,
@@ -33,13 +34,16 @@ export default function App() {
     resumoData,
     getStatusClass,
   } = useFinance();
+
   const [mostrarForm, setMostrarForm] = useState(false);
 
-  const handleSubmit = () => {
-    adicionar();
-    setMostrarForm(false);
-  };
+  const handleSubmit = async () => {
+    const sucesso = await adicionar();
 
+    if (sucesso) {
+      setMostrarForm(false);
+    }
+  };
   return (
     <div className="container">
       <h1 className="title">Minhas Finanças</h1>
@@ -87,6 +91,7 @@ export default function App() {
           form={form}
           setForm={setForm}
           onSubmit={handleSubmit}
+          erro={erro}
         />
       </div>
 

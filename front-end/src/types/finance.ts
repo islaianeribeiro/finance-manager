@@ -8,6 +8,6 @@ export interface FormState {
   data: string;
   parcelado: boolean;
   parcelas: string;
-  parcelaAtual: string;
+  parcela_atual: string;
   status: StatusPagamento | "";
 }

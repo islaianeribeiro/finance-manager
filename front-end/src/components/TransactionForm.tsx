@@ -9,9 +9,10 @@ interface Props {
   form: FormState;
   setForm: React.Dispatch<React.SetStateAction<FormState>>;
   onSubmit: () => void;
+  erro: string | null;
 }
 
-export function TransactionForm({ form, setForm, onSubmit }: Props) {
+export function TransactionForm({ form, setForm, onSubmit, erro }: Props) {
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement>,
   ) => {
@@ -33,6 +34,7 @@ export function TransactionForm({ form, setForm, onSubmit }: Props) {
   return (
     <div className="transaction-registration">
       <h3>Cadastro de Transações</h3>
+      {erro && <p className="erro">{erro}</p>}
       <Select
         value={form.tipo}
         onChange={(value) =>
@@ -44,7 +46,7 @@ export function TransactionForm({ form, setForm, onSubmit }: Props) {
             // limpa parcelamento se virar entrada
             parcelado: value === "saida" ? prev.parcelado : false,
             parcelas: value === "saida" ? prev.parcelas : "",
-            parcelaAtual: value === "saida" ? prev.parcelaAtual : "",
+            parcela_atual: value === "saida" ? prev.parcela_atual : "",
           }))
         }
         options={[
@@ -129,8 +131,8 @@ export function TransactionForm({ form, setForm, onSubmit }: Props) {
       )}
       {form.tipo === "saida" && form.parcelado && form.parcelas && (
         <Select
-          value={form.parcelaAtual || ""}
-          onChange={(value) => updateField("parcelaAtual", value)}
+          value={form.parcela_atual || ""}
+          onChange={(value) => updateField("parcela_atual", value)}
           options={[
             { label: "Parcela Atual", value: "", disabled: true },
             ...Array.from({ length: Number(form.parcelas) }, (_, i) => {

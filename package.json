@@ -1,11 +1,15 @@
 {
   "name": "finance-manager",
   "version": "1.0.0",
+  "private": true,
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "concurrently \"npm run dev --workspace back-end\" \"npm run dev --workspace front-end\""
   },
+  "workspaces": [
+    "back-end",
+    "front-end"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/islaianeribeiro/finance-manager.git"
@@ -13,9 +17,11 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
   "bugs": {
     "url": "https://github.com/islaianeribeiro/finance-manager/issues"
   },
-  "homepage": "https://github.com/islaianeribeiro/finance-manager#readme"
+  "homepage": "https://github.com/islaianeribeiro/finance-manager#readme",
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
 }

@@ -74,13 +74,19 @@ export function TransactionForm({ form, setForm, onSubmit, erro }: Props) {
         className="input"
       />
 
-      <Input
-        name="data"
-        type="date"
-        value={form.data}
-        onChange={handleChange}
-        className="input"
-      />
+      <div className="date-wrapper">
+        {!form.data && (
+          <span className="date-placeholder">Selecione uma data</span>
+        )}
+
+        <Input
+          name="data"
+          type="date"
+          value={form.data}
+          onChange={handleChange}
+          className="input"
+        />
+      </div>
 
       <Select
         value={

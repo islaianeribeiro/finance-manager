@@ -358,8 +358,27 @@ label {
   transform: scale(0.98);
 }
 
+.date-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.date-placeholder {
+  display: none;
+}
+
 /* Responsivo */
 @media (max-width: 480px) {
+  .date-placeholder {
+    display: block;
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #777;
+    pointer-events: none;
+    font-size: 14px;
+  }
   .transaction-registration {
     padding: 16px;
     border-radius: 12px;
